@@ -64,10 +64,16 @@ void merge(int* first_array, int n_first, int* second_array, int n_second, int* 
   }
   while (a < n_first)
   {
-      merged_array[c++] = first_array[a++];
+      if (n_first > 0)
+      {
+        merged_array[c++] = first_array[a++];
+      }
   }
   while (b < n_second)
   {
+    if (n_second > 0)
+    {
       merged_array[c++] = second_array[b++];
+    }
   }
 }
