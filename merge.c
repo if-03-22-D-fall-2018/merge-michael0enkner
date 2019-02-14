@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+
 #define MAX_ARRAY_SIZE 64
 
 void read_array(int* array, int n);
@@ -26,6 +27,7 @@ int main(int argc, char* argv[])
     merge(first_array, n_first, second_array, n_second, merged_array);
     print_array(merged_array, n_first + n_second);
   }
+  return 0;
 }
 
 void read_array(int* array, int n)
@@ -45,4 +47,27 @@ void print_array(int* array, int n)
 
 void merge(int* first_array, int n_first, int* second_array, int n_second, int* merged_array)
 {
+  int a = 0;
+  int b = 0;
+  int c = 0;
+
+  while (a<n_first && b <n_second)
+  {
+      if (first_array[a] < second_array[b])
+      {
+          merged_array[c++] = first_array[a++];
+      }
+      else
+      {
+          merged_array[c++] = second_array[b++];
+      }
+  }
+  while (a < n_first)
+  {
+      merged_array[c++] = first_array[a++];
+  }
+  while (b < n_second)
+  {
+      merged_array[c++] = second_array[b++];
+  }
 }
